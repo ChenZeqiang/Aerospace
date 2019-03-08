@@ -38,6 +38,8 @@ namespace Optoma.Command
                             // 将图片添加到物体上
                             Debug.Log("添加了图片");
                             // 进行事件广播
+                            EventCenter.Broadcast<OpenFileName>(GlobalConfig.EnumTypesManager.EventTypes.ChooseTexture,
+                                openFileName);
                             break;
                         }
                     // 打开视频
@@ -46,6 +48,8 @@ namespace Optoma.Command
                             // 将视频添加到物体上
                             Debug.Log("添加了视频");
                             // 进行事件广播
+                            EventCenter.Broadcast<OpenFileName>(GlobalConfig.EnumTypesManager.EventTypes.ChooseMovie,
+                                openFileName);
                             break;
                         }
                     default:
@@ -63,17 +67,23 @@ namespace Optoma.Command
         {
             // 得到文件的扩展名
             string extension = Path.GetExtension(openFileName.file);
-            if (GlobalConfig.FileTypesManager.TextureType.Contains(extension))
+            string textureType = "." + GlobalConfig.FileTypesManager.TextureType;
+            string movieType = "." + GlobalConfig.FileTypesManager.MovieType;
+            if (textureType.Contains(extension))
             {
                 // 为图片类型
                 Debug.Log("选择了图片文件");
                 // 进行广播事件
+                EventCenter.Broadcast<OpenFileName>(GlobalConfig.EnumTypesManager.EventTypes.ChooseTexture,
+                    openFileName);
             }
-            else if (GlobalConfig.FileTypesManager.MovieType.Contains(extension))
+            else if (movieType.Contains(extension))
             {
                 // 为视频类型
                 Debug.Log("选择了视频文件");
                 // 进行广播事件
+                EventCenter.Broadcast<OpenFileName>(GlobalConfig.EnumTypesManager.EventTypes.ChooseMovie,
+                    openFileName);
             }
             else
             {
