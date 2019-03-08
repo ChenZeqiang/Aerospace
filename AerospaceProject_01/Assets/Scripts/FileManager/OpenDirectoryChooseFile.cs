@@ -25,7 +25,7 @@ namespace Optoma.FileManager
             // \后面的意思是剔除其他非exe文件
             // 筛选需要类型的文件
             // openFileName.filter = "文件(*." + type + ")\0*." + type;
-            openFileName.filter = "文件(*" + type + ")\0*." + type;
+            openFileName.filter = "文件(*." + type + ")\0*." + type;
             // 初始化文件路径
             openFileName.file = new string(new char[256]);
             openFileName.maxFile = openFileName.file.Length;
