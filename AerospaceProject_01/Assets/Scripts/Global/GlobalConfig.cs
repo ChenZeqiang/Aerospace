@@ -22,15 +22,16 @@ namespace Optoma.Global
             /// <summary>
             ///  图片和视频
             /// </summary>
-            public const string FileType = TextureType +";*" + MovieType;
+            public const string FileType = TextureType +";*." + MovieType;
             /// <summary>
             ///  图片类型
             /// </summary>
-            public const  string TextureType = ".JPG;*.PNG;*.PSD;*.CDR;*.TIF;*.GIF;*.TGA;*.EXIF;*.FPX;*.SVG;*.PCD";
+            public const string TextureType = "jpg;*.png;*.psd;*.cdr;*.tif;*.gif;*.tga;*.exif;*.fpx;*.svg;*.pcd";
+            // public const  string TextureType = ".JPG;*.PNG;*.PSD;*.CDR;*.TIF;*.GIF;*.TGA;*.EXIF;*.FPX;*.SVG;*.PCD";
             /// <summary>
             ///  视频类型
             /// </summary>
-            public const  string MovieType = ".mp4;*.avi;*.mpg;*.mov;*.ogv";
+            public const  string MovieType = "mp4;*.avi;*.mpg;*.mov;*.ogv";
             /// <summary>
             ///  选择图片/视频文件
             /// </summary>
@@ -69,12 +70,22 @@ namespace Optoma.Global
         /// <summary>
         ///  物体的Tag值
         /// </summary>
-        public class GameObjectTagsManager
+        public class GameObjectTagsAndNamesManager
         {
+            #region Tag
             /// <summary>
             ///  选择图片的按钮的Tag值
             /// </summary>
             public const string ChooseButtonTag = "ChooseButton";
+            #endregion
+
+            #region Names
+            /// <summary>
+            ///  视频渲染使用的图片名字
+            /// </summary>
+            public const string VideoPlayerRenderTextureName = "VideoPlayerRanderTexture";
+            #endregion
+
         }
       
     }
